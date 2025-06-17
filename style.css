@@ -1,0 +1,255 @@
+@font-face {
+  font-family: "windows-98";
+  src: url("assets/fonts/WindowsRegular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  box-sizing: border-box;
+  background-color: teal;
+  font-family: "windows-98", sans-serif;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.window {
+  width: 320px;
+  border: 2px solid #000;
+  box-shadow: 4px 4px 0 #444;
+  background-color: #ccc;
+}
+
+.title-bar {
+  background: navy;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 6px;
+  height: 24px;
+  font-size: 14px;
+}
+
+.title-bar-text {
+  font-weight: bold;
+}
+
+.title-bar-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+}
+
+.title-bar-controls button {
+  background-color: #ccc;
+  border: 1px solid #000;
+  width: 18px;
+  height: 18px;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.window-body {
+  padding: 12px;
+  background: #eee;
+  color: #000;
+}
+
+h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.field-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.field-row .left-side {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.field-row .right-side {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+.field-row-stacked {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 4px;
+  border: 2px inset #aaa;
+  font-size: 14px;
+  background-color: white;
+}
+
+input[readonly] {
+  background-color: #f5f5f5;
+}
+
+button {
+  padding: 4px 12px;
+  background-color: #ccc;
+  border: 2px outset #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: "windows-98", sans-serif;
+}
+.app-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 8px;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+
+
+.icon {
+  width: 50px;
+  height: 50px;
+  image-rendering: pixelated;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-box {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: 155%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f0f0f0;
+  border: 2px solid #000;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: #000;
+  font-family: "windows-98", sans-serif;
+  box-shadow: 2px 2px 0px #444;
+  transition: opacity 0.2s;
+  z-index: 1000;
+  width: 220px;
+  max-height: 100px;
+  overflow-y: auto;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.tooltip:hover .tooltip-box {
+  visibility: visible;
+  opacity: 1;
+}
+
+.footer {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+}
+
+.github-icon {
+  width: 40px;
+  height: 40px;
+  image-rendering: pixelated;
+  transition: transform 0.2s ease;
+}
+
+.github-icon:hover {
+  transform: scale(1.1);
+}
+
+@media (hover: none) and (pointer: coarse) {
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: teal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-size: 16px;
+    touch-action: manipulation;
+  }
+
+  .window {
+    width: 90%;
+    max-width: 380px;
+    border: 2px solid #000;
+    background-color: #ccc;
+    box-shadow: 4px 4px 0 #444;
+  }
+
+  .window-body {
+    padding: 16px;
+  }
+
+  .title-bar {
+    height: 32px;
+    font-size: 15px;
+    padding: 2px 8px;
+  }
+
+  .title-bar-controls button {
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+  }
+
+  .app-title img.icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  input,
+  button {
+    font-size: 16px;
+  }
+
+  .tooltip-box {
+    left: 50%;
+    transform: translateX(-85%);
+    width: 220px;
+  }
+
+}

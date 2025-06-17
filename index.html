@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="description" content="Generate strong, customizable passwords instantly with CyroPass. Fast, secure, no tracking, no ads – just privacy-focused password generation.">
+  <meta name="keywords" content="no ads password generator, password generator,no ads password tool, secure password, regex password, privacy password tool">
+  <meta name="author" content="Amirabbasjadidi">
+  <meta property="og:title" content="CyroPass – Free Password Generator (No Ads)">
+  <meta property="og:description" content="Generate strong, customizable passwords instantly. No tracking, no ads – just privacy.">
+  <meta property="og:url" content="https://cyropass.xyz">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="CyroPass – Free Password Generator (No Ads)">
+  <meta name="twitter:description" content="Generate secure passwords instantly. No tracking, no ads – just privacy.">
+  <link rel="icon" href="assets/images/lock-icon.png" type="image/png">
+  <title>CyroPass – Free Password Generator (No Ads)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="window">
+    <div class="title-bar">
+      <div class="title-bar-text">CyroPass</div>
+      <div class="title-bar-controls">
+      <div class="tooltip">
+        <button aria-label="Help">?</button>
+        <div class="tooltip-box">
+          Set password length and pattern, then click Generate.  
+          Check "Ambiguous" to use confusing characters like I, l, 1, O, 0.
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="window-body">
+      <div class="app-title">
+      <img src="assets/images/lock-icon.png" alt="Secure password generator icon" class="icon">
+      <h1>CyroPass</h1>
+      </div>
+      <p>Password Generator</p>
+
+    <div class="field-row">
+      <div class="left-side">
+        <label for="Ambiguous">Ambiguous:</label>
+        <input type="checkbox" id="Ambiguous">
+      </div>
+      <div class="right-side">
+        <label for="length">Length:</label>
+        <input type="number" id="length" value="12" min="1" max="100">
+      </div>
+    </div>
+
+
+      <div class="field-row-stacked">
+        <label for="regex">Characters</label>
+        <input id="regex" type="text" value="[\w\d\sym?-]">
+      </div>
+
+      <div class="field-row-stacked">
+        <label for="password">Password</label>
+        <input id="password" type="text" readonly>
+      </div>
+
+      <div class="field-row" style="justify-content: flex-end;">
+        <button id="generate">Generate</button>
+      </div>
+    </div>
+  </div>
+  <p style="position: absolute; left: -9999px;">
+    CyroPass is a free password generator tool with no ads and no tracking. Use regex to generate secure passwords instantly. Fast, private, and open.
+  </p>
+
+  <footer class="footer">
+    <a href="https://github.com/Amirabbasjadidi/CyroPass" target="_blank" rel="noopener noreferrer">
+      <img src="assets/images/github.png" alt="GitHub repository" class="github-icon">
+    </a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
