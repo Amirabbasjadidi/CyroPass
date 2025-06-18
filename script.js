@@ -63,3 +63,45 @@ function expandRanges(input) {
     return range;
   });
 }
+
+document.getElementById("password").addEventListener("click", () => {
+  const passwordField = document.getElementById("password");
+  const password = passwordField.value;
+
+  if (!password) return;
+
+  navigator.clipboard.writeText(password).then(() => {
+    showCopiedTooltip(passwordField);
+  }).catch(err => {
+    console.error("Failed to copy!", err);
+  });
+});
+
+
+
+function showCopiedTooltip() {
+  const tooltip = document.createElement("div");
+  tooltip.textContent = "Copied!";
+  tooltip.style.position = "fixed";
+  tooltip.style.bottom = "20px";
+  tooltip.style.left = "-200px";
+  tooltip.style.background = "#000";
+  tooltip.style.color = "#fff";
+  tooltip.style.padding = "8px 16px";
+  tooltip.style.borderRadius = "8px";
+  tooltip.style.fontSize = "14px";
+  tooltip.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.3)";
+  tooltip.style.zIndex = "9999";
+  tooltip.style.transition = "left 0.5s ease-in-out";
+
+  document.body.appendChild(tooltip);
+  setTimeout(() => {
+    tooltip.style.left = "20px";
+  }, 50);
+  setTimeout(() => {
+    tooltip.style.left = "-200px";
+  }, 2000);
+  setTimeout(() => {
+    tooltip.remove();
+  }, 2700);
+}
