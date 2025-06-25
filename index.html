@@ -5,8 +5,6 @@
   <meta charset="UTF-8">
   <meta name="google-site-verification" content="III5vQViJSGhlOE23jI-CiSnw_uG5iRMHaek1vUhkUg" />
   <meta name="description" content="Generate strong, customizable passwords instantly with CyroPass. Fast, secure, no tracking, no ads – just privacy-focused password generation.">
-  <meta name="keywords" content="no ads password generator, password generator,no ads password tool, secure password, regex password, privacy password tool">
-  <meta name="author" content="Amirabbasjadidi">
   <meta property="og:title" content="CyroPass – Free Password Generator (No Ads)">
   <meta property="og:description" content="Generate strong, customizable passwords instantly. No tracking, no ads – just privacy.">
   <meta property="og:url" content="https://cyropass.xyz">
@@ -16,13 +14,16 @@
   <meta name="twitter:description" content="Generate secure passwords instantly. No tracking, no ads – just privacy.">
   <link rel="icon" href="assets/images/lock-icon.png" type="image/png">
   <title>CyroPass – Free Password Generator (No Ads)</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.min.css">
 </head>
 <body>
   <div class="window">
     <div class="title-bar">
       <div class="title-bar-text">CyroPass</div>
       <div class="title-bar-controls">
+        <button id="theme-toggle" aria-label="Toggle Theme">
+          <img id="theme-icon" src="assets/images/Day.webp" alt="Toggle Theme" width="15" height="15">
+        </button>
       <div class="tooltip">
         <button aria-label="Help">?</button>
         <div class="tooltip-box">
@@ -53,7 +54,10 @@
 
       <div class="field-row-stacked">
         <label for="regex">Characters</label>
-        <input id="regex" type="text" value="[\w\d\sym?-]">
+        <div class="input-wrapper">
+          <input id="regex" type="text" value="[\w\d\sym?-]">
+          <button type="button" id="reset-regex" class="reset-inside" title="Reset">&#x21BA;</button>
+        </div>
       </div>
 
       <div class="field-row-stacked">
@@ -66,16 +70,13 @@
       </div>
     </div>
   </div>
-  <p style="position: absolute; left: -9999px;">
-    CyroPass is a free password generator tool with no ads and no tracking. Use regex to generate secure passwords instantly. Fast, private, and open.
-  </p>
 
   <footer class="footer">
     <a href="https://github.com/Amirabbasjadidi/CyroPass" target="_blank" rel="noopener noreferrer">
-      <img src="assets/images/github.png" alt="GitHub repository" class="github-icon">
+      <img src="assets/images/github.webp" alt="GitHub repository" class="github-icon">
     </a>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.min.js"></script>
 </body>
 </html>

@@ -1,8 +1,10 @@
 @font-face {
   font-family: "windows-98";
-  src: url("assets/fonts/WindowsRegular.ttf") format("truetype");
+  src: url("assets/fonts/Windows.woff2") format("woff2"),
+       url("assets/fonts/Windows.woff")  format("woff");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 body {
@@ -67,12 +69,6 @@ body {
 h1 {
   font-size: 20px;
   margin: 0;
-}
-
-p {
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-size: 18px;
 }
 
 .field-row {
@@ -200,6 +196,123 @@ p {
 #password {
   cursor: pointer;
 }
+
+.tooltip button {
+  margin-left: 2px;
+}
+
+body.dark-mode {
+  background-color: #004040;
+  color: #ddd;
+}
+body.dark-mode .window {
+  background-color: #1e1e1e;
+  border-color: #444;
+  box-shadow: 4px 4px 0 #000;
+  color: #ddd;
+}
+
+body.dark-mode .window-body {
+  background: #2a2a2a;
+  color: #eee;
+}
+
+body.dark-mode .title-bar {
+  background: #000080;
+  color: #fff;
+}
+
+body.dark-mode input[type="text"],
+body.dark-mode input[type="number"] {
+  background-color: #2a2a2a;
+  color: #eee;
+  border-color: #555;
+}
+
+body.dark-mode input[readonly] {
+  background-color: #333;
+  color: #ccc;
+}
+
+body.dark-mode button {
+  background-color: #444;
+  color: #ccc;
+  border: 2px outset #666;
+}
+
+body.dark-mode .tooltip-box {
+  background-color: #1c1c1c;
+  color: #ddd;
+  border-color: #444;
+}
+
+body.dark-mode .github-icon {
+  filter: invert(1);
+}
+
+body.dark-mode input[type="checkbox"] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background-color: #2a2a2a;
+  border: 2px solid #555;
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+}
+
+body.dark-mode input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  width: 4px;
+  height: 8px;
+  border: solid #ccc;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.theme-overlay {
+  position: fixed;
+  inset: 0;
+  background: #1e1e1e;
+  transform: scale(0);
+  transition: transform 0.6s cubic-bezier(.4, 0, .2, 1);
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding-right: 24px;
+  box-sizing: border-box;
+}
+
+.reset-inside {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0;
+}
+
+.reset-inside:hover   { color: red; }
+.reset-inside:active  { transform: translateY(-50%) scale(0.95); }
+
+body.dark-mode .reset-inside { color: #ccc; }
+body.dark-mode .reset-inside:hover { color: #fff; }
+
+
 
 @media (hover: none) and (pointer: coarse) {
   html, body {

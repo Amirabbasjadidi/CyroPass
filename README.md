@@ -13,6 +13,8 @@
 
 - ✅ **No Ads / No Analytics** – 100% privacy-first
 - 🔒 **Secure & Random** – Uses `window.crypto` for cryptographic randomness
+- 🌙 **Dark Mode Support** – Easy on the eyes, perfect for night use
+- 🚀 **Ultra-Fast Performance** – Scores Grade A on GTmetrix
 - 🧩 **Regex-based Character Control** – Customize password rules
 - 🧠 **Exclude Ambiguous Characters** – Avoid confusing characters like `l`, `1`, `O`, `0`
 - 🖥️ **Retro UI** – Designed with a clean, nostalgic Windows 98 aesthetic
