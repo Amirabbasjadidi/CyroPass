@@ -124,7 +124,7 @@ function showCopiedTooltip() {
 }
 
 const themeToggle = document.getElementById("theme-toggle");
-const themeIcon   = document.getElementById("theme-icon");
+const themeIcon = document.getElementById("theme-icon");
 
 function updateIcon() {
   if (document.body.classList.contains("dark-mode")) {
@@ -136,10 +136,18 @@ function updateIcon() {
   }
 }
 
+function updateThemeColor() {
+  const meta = document.getElementById("theme-color-meta");
+  if (!meta) return;
+  const color = document.body.classList.contains("dark-mode") ? "#1e1e1e" : "#ffffff";
+  meta.setAttribute("content", color);
+}
+
 function applySavedTheme() {
   const saved = localStorage.getItem("theme");
   if (saved === "dark") document.body.classList.add("dark-mode");
   updateIcon();
+  updateThemeColor();
 }
 applySavedTheme();
 
@@ -152,9 +160,16 @@ function animatedThemeChange() {
   const overlay = document.createElement("div");
   overlay.className = "theme-overlay";
   overlay.style.background = toDark ? "#1e1e1e" : "#ccc";
-
+  overlay.style.position = "fixed";
+  overlay.style.top = "0";
+  overlay.style.left = "0";
+  overlay.style.width = "100vw";
+  overlay.style.height = "100vh";
+  overlay.style.zIndex = "9999";
+  overlay.style.transition = "transform 0.6s ease";
   overlay.style.transformOrigin = toDark ? "top left" : "bottom right";
   overlay.style.transform = "scale(0)";
+
   document.body.appendChild(overlay);
 
   requestAnimationFrame(() => {
@@ -167,6 +182,7 @@ function animatedThemeChange() {
     document.body.classList.toggle("dark-mode", toDark);
     localStorage.setItem("theme", toDark ? "dark" : "light");
     updateIcon();
+    updateThemeColor();
 
     overlay.style.transitionDelay = "100ms";
     overlay.style.transformOrigin = toDark ? "bottom right" : "top left";
@@ -174,7 +190,6 @@ function animatedThemeChange() {
 
     overlay.addEventListener("transitionend", () => {
       overlay.remove();
-
       document.body.style.pointerEvents = "";
       document.body.style.cursor = "";
     }, { once: true });
@@ -182,7 +197,6 @@ function animatedThemeChange() {
 }
 
 themeToggle.addEventListener("click", animatedThemeChange);
-
 
 const SETTINGS_KEY = "cyropass_settings";
 
